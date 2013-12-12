@@ -283,17 +283,25 @@ def stroke(**args):
 				<p class="lead">작업의 편의를 위해 phiori에서는 몇 개의 독자 이벤트를 제공합니다.</p>
 				<h2>OnTalk</h2>
 				<p>랜덤 토크 이벤트입니다. 사용자가 임의로 부르지 않을 경우엔 시간이 흐름에 따라 스스로 발동합니다.</p>
-				<p><i>인수 없음.</i></p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p><i>인수 없음.</i></p>
+					</div>
+				</div>
 				<h2>OnStroke</h2>
 				<p>쓰다듬기 이벤트입니다. 판정 부위를 어느 정도 쓰다듬으면 발동합니다.</p>
-				<dl>
-					<dt>Reference0</dt>
-					<dd>쓰다듬은 대상</dd>
-					<dt>Reference1</dt>
-					<dd>쓰다듬은 판정 부위</dd>
-					<dt>Reference2</dt>
-					<dd>쓰다듬기 포인트</dd>
-				</dl>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd><p>쓰다듬은 대상</p></dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd><p>쓰다듬은 판정 부위</p></dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd><p>쓰다듬은 정도</p></dd>
+						</dl>
+					</div>
+				</div>
 				<br />
 			</section>
 		</div>
