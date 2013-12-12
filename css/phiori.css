@@ -11,3 +11,9 @@ code, kbd, pre, samp {
 ruby.ukagaka>rb {
 	font-family: 'メイリオ', 'Meiryo', 'Takao Pゴシック', 'TakaoPGothic', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
+
+/* class */
+.big {
+	font-size: 16px;
+	font-weight: normal;
+}

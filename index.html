@@ -189,34 +189,79 @@ def stroke(**args):
 				<h3>기동 시 인사</h3>
 <pre>@handle("OnBoot")
 def boot(**args):
-	print(r"\1\s0\0\s0여어. \w4잘 지냈어?\e")</pre>
+	write(r"\1\s0\0\s0여어. \w4잘 지냈어?\e")</pre>
 				<h3>더블클릭 시 메뉴 보이기</h3>
 <pre>@handle("OnMouseDoubleClick")
 def mousedoubleclick(**args):
-	print(r"\0\s0")
-	print(random.choice(["뭔데.", "응?", "왜."]))
-	print(r"\w4\n\n")
-	print(r"\![*]\q[뭔가 말해봐,OnTalk]\n")
-	print(r"\![*]\q[아무것도 아니야,cancel]\n")
-	print(r"\e")</pre>
+	write(r"\0\s0")
+	write(random.choice(["뭔데.", "응?", "왜."]))
+	write(r"\w4\n\n")
+	write(r"\![*]\q[뭔가 말해봐,OnTalk]\n")
+	write(r"\![*]\q[아무것도 아니야,cancel]\n")
+	write(r"\e")</pre>
 				<h3>랜덤 토크</h3>
 <pre>@handle("OnTalk")
 def talk(**args):
 	food = random.choice(["붕어빵", "고기만두", "타코야키"])
-	print(random.choice([
-		r"\1\s0\0\s4후우…\n\n\w9\1무슨 일이야?\n\n\w9\0\s0갑자기 {} 먹고 싶어.\n\n\w9\1%username에게 사달라고 해.\n\n\w9\0\s8이녀석은 분명 사들고 와서 내 눈 앞에서 전부 먹어치울 거야. \w6틀림 없어.\n\n\w9\1…….".format(food),
-		r"\1\s0\0\s7…\w8…\w8.\n\n\w4\w8\w9\1뭐…뭐야, \w4무섭잖아.\n\n\w9\0내가 사 놓은 {}, 네가 먹었냐.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w4.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w8뭔데, 없애버린다.\n\n\w2\1제, \w4제가 잘못했습니다…\n\n\w9\0…\w4…\w8\s4후우…".format(food),
-	])
-	print(r"\e")</pre>
+	write(random.choice([
+		r"\1\s0\0\s4후우…\n\n\w9\1무슨 일이야?\n\n\w9\0\s0갑자기 {} 먹고 싶어.\n\n\w9\1%username에게 사달라고 해.\n\n\w9\0\s8이녀석은 분명 사들고 와서 내 눈 앞에서 전부 먹어치울 거야. \w6틀림 없어.\n\n\w9\1…….",
+		r"\1\s0\0\s7…\w8…\w8.\n\n\w4\w8\w9\1뭐…뭐야, \w4무섭잖아.\n\n\w9\0내가 사 놓은 {}, 네가 먹었냐.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w4.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w8뭔데, 없애버린다.\n\n\w2\1제, \w4제가 잘못했습니다…\n\n\w9\0…\w4…\w8\s4후우…",
+	]), food)
+	write(r"\e")</pre>
 				<h3>쓰다듬기 판정</h3>
 <pre>@handle("OnStroke")
 def stroke(**args):
 	if args["Reference1"] == "Head":
-		print(r"\0\s1…\w4…\w8기분은 \w4좋네…\e")
-</pre>
+		write(r"\0\s1…\w4…\w8기분은 \w4좋네…\e")</pre>
 				<br/>
 			</section>
 			<br />
+			<section id="bundle">
+				<h1>제공되는 기본적인 요소</h1>
+				<br />
+				<p class="lead">작업의 편의와 확장성을 위해 phiori에서는 전역 사전에 몇 가지 요소를 기본적으로 제공합니다.</p>
+				<h2>기본적으로 포함되는 모듈</h2>
+				<ul>
+					<li>json</li>
+					<li>os</li>
+					<li>random</li>
+					<li>re</li>
+					<li>sys</li>
+					<li>time</li>
+					<li>urllib</li>
+				</ul>
+				<h2>기본적으로 제공되는 함수</h2>
+				<dl>
+					<dt><p class="big"><kbd><b>print</b></kbd><big>(</big><em>*objects</em>, <em>sep=" "</em>, <em>end=r"\n"</em><big>)</big></p></dt>
+					<dd><p><em>sep</em>로 구분되며 끝에 <em>end</em>가 붙도록 문자열화된 <em>objects</em>를 베이스웨어에 출력값으로서 전송합니다. 필요한 인수는 키워드 인수로서 취급해야 합니다.</p></dd>
+					<dt><p class="big"><kbd><b>write</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
+					<dd><p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>), end="")</code>의 간단한 표현입니다.</p></dd>
+					<dt><p class="big"><kbd><b>writeline</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
+					<dd><p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>))</code>의 간단한 표현입니다.</p></dd>
+				</dl>
+				<h2>기본적으로 제공되는 변수</h2>
+				<h3>config</h3>
+				<p><span class="label label-default">dict</span></p>
+				<p><code>config.txt</code>로부터 읽어들인 설정을 제공합니다. 형식은 문자열로 고정되며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
+				<h3>encoding</h3>
+				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
+				<p>python3가 사용하는 기본 인코딩을 제공합니다. <code>sys.getdefaultencoding()</code>와 같습니다.</p>
+				<h3>locale</h3>
+				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
+				<p>현재 시스템의 기본 로케일을 제공합니다. <code>locale.getdefaultlocale()</code>와 같습니다.</p>
+				<h3>info</h3>
+				<p><span class="label label-default">dict</span> <span class="label label-danger">readonly</span></p>
+				<p>베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.</p>
+				<h3>path</h3>
+				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
+				<p><code>phiori.dll</code>이 있는 디렉토리 위치를 제공합니다.</p>
+				<h3>res</h3>
+				<p><span class="label label-default">dict</span> <span class="label label-danger">readonly</span></p>
+				<p>베이스웨어로부터 리소스를 요청받았을 때 보내는 <code>resource.txt</code>로부터 읽어들인 리소스를 제공합니다.</p>
+				<h3>var</h3>
+				<p><span class="label label-default">dict</span></p>
+				<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
+			</section>
 			<section id="original_event">
 				<h1>독자 이벤트</h1>
 				<br />
