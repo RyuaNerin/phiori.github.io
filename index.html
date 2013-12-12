@@ -230,37 +230,52 @@ def stroke(**args):
 					<li>time</li>
 					<li>urllib</li>
 				</ul>
-				<h2>기본적으로 제공되는 함수</h2>
+				<h2>기본적으로 제공되는 메소드</h2>
 				<dl>
-					<dt><p class="big"><kbd><b>print</b></kbd><big>(</big><em>*objects</em>, <em>sep=" "</em>, <em>end=r"\n"</em><big>)</big></p></dt>
-					<dd><p><em>sep</em>로 구분되며 끝에 <em>end</em>가 붙도록 문자열화된 <em>objects</em>를 베이스웨어에 출력값으로서 전송합니다. 필요한 인수는 키워드 인수로서 취급해야 합니다.</p></dd>
-					<dt><p class="big"><kbd><b>write</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
-					<dd><p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>), end="")</code>의 간단한 표현입니다.</p></dd>
-					<dt><p class="big"><kbd><b>writeline</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
-					<dd><p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>))</code>의 간단한 표현입니다.</p></dd>
+					<dt><p class="big"><em class="text-info">void</em> <kbd><b>print</b></kbd><big>(</big><em>*objects</em>, <em>sep=" "</em>, <em>end=r"\n"</em><big>)</big></p></dt>
+					<dd>
+						<p><em>sep</em>로 구분되며 끝에 <em>end</em>가 붙도록 문자열화된 <em>objects</em>를 베이스웨어에 출력값으로서 전송합니다. 필요한 인수는 키워드 인수로서 취급해야 합니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-info">void</em> <kbd><b>write</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
+					<dd>
+						<p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>), end="")</code>의 간단한 표현입니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-info">void</em> <kbd><b>writeline</b></kbd><big>(</big><em>text</em>, <em>*args</em>, <em>**kwargs</em><big>)</big></p></dt>
+					<dd>
+						<p><code>print(<em>text</em>.format(<em>*args</em>, <em>**kwargs</em>))</code>의 간단한 표현입니다.</p>
+					</dd>
 				</dl>
 				<h2>기본적으로 제공되는 변수</h2>
-				<h3>config</h3>
-				<p><span class="label label-default">dict</span></p>
-				<p><code>config.txt</code>로부터 읽어들인 설정을 제공합니다. 형식은 문자열로 고정되며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
-				<h3>encoding</h3>
-				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
-				<p>python3가 사용하는 기본 인코딩을 제공합니다. <code>sys.getdefaultencoding()</code>와 같습니다.</p>
-				<h3>locale</h3>
-				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
-				<p>현재 시스템의 기본 로케일을 제공합니다. <code>locale.getdefaultlocale()</code>와 같습니다.</p>
-				<h3>info</h3>
-				<p><span class="label label-default">dict</span> <span class="label label-danger">readonly</span></p>
-				<p>베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.</p>
-				<h3>path</h3>
-				<p><span class="label label-default">str</span> <span class="label label-danger">readonly</span></p>
-				<p><code>phiori.dll</code>이 있는 디렉토리 위치를 제공합니다.</p>
-				<h3>res</h3>
-				<p><span class="label label-default">dict</span> <span class="label label-danger">readonly</span></p>
-				<p>베이스웨어로부터 리소스를 요청받았을 때 보내는 <code>resource.txt</code>로부터 읽어들인 리소스를 제공합니다.</p>
-				<h3>var</h3>
-				<p><span class="label label-default">dict</span></p>
-				<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
+				<dl>
+					<dt><p class="big"><em class="text-info">dict</em> <kbd><b>config</b></kbd></p></dt>
+					<dd>
+						<p><code>config.txt</code>로부터 읽어들인 설정을 제공합니다. 형식은 문자열로 고정되며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>encoding</b></kbd></p></dt>
+					<dd>
+						<p>python3가 사용하는 기본 인코딩을 제공합니다. <code>sys.getdefaultencoding()</code>와 같습니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>locale</b></kbd></p></dt>
+					<dd>
+						<p>현재 시스템의 기본 로케일을 제공합니다. <code>locale.getdefaultlocale()</code>와 같습니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> <kbd><b>info</b></kbd></p></dt>
+					<dd>
+						<p>베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>path</b></kbd></p></dt>
+					<dd>
+						<p><code>phiori.dll</code>이 있는 디렉토리 위치를 제공합니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> <kbd><b>res</b></kbd></p></dt>
+					<dd>
+						<p>베이스웨어로부터 리소스를 요청받았을 때 보내는 <code>resource.txt</code>로부터 읽어들인 리소스를 제공합니다.</p>
+					</dd>
+					<dt><p class="big"><em class="text-info">dict</em> <kbd><b>var</b></kbd></p></dt>
+					<dd>
+						<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
+					</dd>
+				</dl>
 			</section>
 			<section id="original_event">
 				<h1>독자 이벤트</h1>
