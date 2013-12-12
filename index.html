@@ -1,79 +1,250 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<title>phiori - 우카가카를 위한 python3 기반의 SHIORI</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/phiori.css" />
+	</head>
+	<body>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>phiori<br /><small>우카가카를 위한 python3 기반의 SHIORI</small></h1>
+				<br />
+				<div>
+					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1/phiori-1.zip">첫번째 배포 버전을 다운로드</a>
+					<a class="btn btn-lg btn-default" href="https://github.com/minacle/phiori/archive/master.zip">개발 단계의 최신 소스 코드를 다운로드</a>
+					<a class="btn btn-lg btn-link" href="https://github.com/minacle/phiori/releases" target="_blank">릴리즈 목록</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<section id="how_to_use">
+				<h1>시작하기</h1>
+				<br />
+				<p class="lead">phiori 배포 버전은 페이지 상단에서 다운로드할 수 있습니다.</p>
+				<p>phiori 배포 버전을 제작할 고스트 폴더에 아래와 같이 넣어주세요.</p>
+<pre>home/
+  +-ghost/
+    +-myghost/
+      +-ghost/
+        +-master/
+          +-phiori/
+          +-lib.zip
+          +-phiori.dll
+          +-python33.dll</pre>
+				<br />
+				<p>이후 일반적인 고스트 작성 방법에 따라 descript.txt 파일을 작성합니다. 이 때, shiori는 phiori.dll으로 지정합니다.</p>
+				<pre>shiori,phiori.dll</pre>
+				<br />
+				<h2>틀</h2>
+				<br />
+				<p class="lead">descript.txt가 있는 곳과 같은 곳에 python3 스크립트 파일을 작성하여 곧바로 고스트를 만들 수 있습니다.</p>
+				<p>확장자가 <code>.py</code>인 python3 스크립트 파일을 만들어 직접 코드를 입력하거나, 아래 틀을 수정하여 사용하세요.</p>
+<pre># Startup/Close/Change events.
+@handle("OnFirstBoot")
+def firstboot(**args):
+	pass
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="phiori : python3-based SHIORI for Ukagaka(伺か)" />
+@handle("OnBoot")
+def boot(**args):
+	pass
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+@handle("OnClose")
+def close(**args):
+	pass
 
-    <title>phiori</title>
-  </head>
+@handle("OnGhostChanged")
+def ghostchanged(**args):
+	pass
 
-  <body>
+@handle("OnGhostChanging")
+def ghostchanging(**args):
+	pass
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/minacle/phiori">View on GitHub</a>
+@handle("OnShellChanged")
+def shellchanged(**args):
+	pass
 
-          <h1 id="project_title">phiori</h1>
-          <h2 id="project_tagline">python3-based SHIORI for Ukagaka(伺か)</h2>
+@handle("OnShellChanging")
+def shellchanging(**args):
+	pass
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/minacle/phiori/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/minacle/phiori/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+@handle("OnWindowStateRestore")
+def windowstaterestore(**args):
+	pass
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+@handle("OnWindowStateMinimize")
+def windowstateminimize(**args):
+	pass
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+# Vanish events.
+@handle("OnVanishSelecting")
+def vanishselecting(**args):
+	pass
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+@handle("OnVanishSelected")
+def vanishselected(**args):
+	pass
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+@handle("OnVanishCancel")
+def vanishcancel(**args):
+	pass
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+@handle("OnVanishButtonHold")
+def vanishbuttonhold(**args):
+	pass
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+@handle("OnVanished")
+def vanished(**args):
+	pass
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+# Choice events.
+@handle("OnChoiceSelect")
+def choiceselect(**args):
+	pass
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+@handle("OnChoiceTimeout")
+def choicetimeout(**args):
+	pass
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+@handle("OnAnchorSelect")
+def anchorselect(**args):
+	pass
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+# Surface events.
+@handle("OnSurfaceRestore")
+def surfacerestore(**args):
+	pass
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+# Mouse events.
+@handle("OnMouseClick")
+def mouseclick(**args):
+	pass
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+@handle("OnMouseDoubleClick")
+def mousedoubleclick(**args):
+	pass
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">phiori maintained by <a href="https://github.com/minacle">minacle</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+# Install events.
+@handle("OnInstallBegin")
+def installbegin(**args):
+	pass
 
-    
+@handle("OnInstallComplete")
+def installcomplete(**args):
+	pass
 
-  </body>
+@handle("OnInstallFailure")
+def installfailure(**args):
+	pass
+
+@handle("OnInstallRefuse")
+def installrefuse(**args):
+	pass
+
+# Network update events.
+@handle("OnUpdateBegin")
+def updatebegin(**args):
+	pass
+
+@handle("OnUpdateComplete")
+def updatecomplete(**args):
+	pass
+
+@handle("OnUpdateFailure")
+def updatefailure(**args):
+	pass
+
+@handle("OnUpdate.OnDownloadBegin")
+def update_downloadbegin(**args):
+	pass
+
+@handle("OnUpdate.OnMD5CompareBegin")
+def update_md5comparebegin(**args):
+	pass
+
+@handle("OnUpdate.OnMD5CompareComplete")
+def update_md5comparecomplete(**args):
+	pass
+
+@handle("OnUpdate.OnMD5CompareFailure")
+def update_md5comparefailure(**args):
+	pass
+
+# phiori events.
+@handle("OnTalk")
+def talk(**args):
+	pass
+
+@handle("OnStroke")
+def stroke(**args):
+	pass
+</pre>
+				<br />
+				<h2>예시</h2>
+				<br />
+				<p class="lead">phiori를 이용해 고스트를 만드는 기본적인 예시를 몇 개 준비했습니다.</p>
+				<h3>기동 시 인사</h3>
+<pre>@handle("OnBoot")
+def boot(**args):
+	print(r"\1\s0\0\s0여어. \w4잘 지냈어?\e")</pre>
+				<h3>더블클릭 시 메뉴 보이기</h3>
+<pre>@handle("OnMouseDoubleClick")
+def mousedoubleclick(**args):
+	print(r"\0\s0")
+	print(random.choice(["뭔데.", "응?", "왜."]))
+	print(r"\w4\n\n")
+	print(r"\![*]\q[뭔가 말해봐,OnTalk]\n")
+	print(r"\![*]\q[아무것도 아니야,cancel]\n")
+	print(r"\e")</pre>
+				<h3>랜덤 토크</h3>
+<pre>@handle("OnTalk")
+def talk(**args):
+	food = random.choice(["붕어빵", "고기만두", "타코야키"])
+	print(random.choice([
+		r"\1\s0\0\s4후우…\n\n\w9\1무슨 일이야?\n\n\w9\0\s0갑자기 {} 먹고 싶어.\n\n\w9\1%username에게 사달라고 해.\n\n\w9\0\s8이녀석은 분명 사들고 와서 내 눈 앞에서 전부 먹어치울 거야. \w6틀림 없어.\n\n\w9\1…….".format(food),
+		r"\1\s0\0\s7…\w8…\w8.\n\n\w4\w8\w9\1뭐…뭐야, \w4무섭잖아.\n\n\w9\0내가 사 놓은 {}, 네가 먹었냐.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w4.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w8뭔데, 없애버린다.\n\n\w2\1제, \w4제가 잘못했습니다…\n\n\w9\0…\w4…\w8\s4후우…".format(food),
+	])
+	print(r"\e")</pre>
+				<h3>쓰다듬기 판정</h3>
+<pre>@handle("OnStroke")
+def stroke(**args):
+	if args["Reference1"] == "Head":
+		print(r"\0\s1…\w4…\w8기분은 \w4좋네…\e")
+</pre>
+				<br/>
+			</section>
+			<br />
+			<section id="original_event">
+				<h1>독자 이벤트</h1>
+				<br />
+				<p class="lead">작업의 편의를 위해 phiori에서는 몇 개의 독자 이벤트를 제공합니다.</p>
+				<h2>OnTalk</h2>
+				<p>랜덤 토크 이벤트입니다. 사용자가 임의로 부르지 않을 경우엔 시간이 흐름에 따라 스스로 발동합니다.</p>
+				<p><i>인수 없음.</i></p>
+				<h2>OnStroke</h2>
+				<p>쓰다듬기 이벤트입니다. 판정 부위를 어느 정도 쓰다듬으면 발동합니다.</p>
+				<dl>
+					<dt>Reference0</dt>
+					<dd>쓰다듬은 대상</dd>
+					<dt>Reference1</dt>
+					<dd>쓰다듬은 판정 부위</dd>
+					<dt>Reference2</dt>
+					<dd>쓰다듬기 포인트</dd>
+				</dl>
+				<br />
+			</section>
+		</div>
+		<br />
+		<div class="container">
+			<div class="footer">
+				<p>Copyright &copy; <a href="http://minacle.it/">Minacle.</a></p>
+			</div>
+		</div>
+		<br />
+		<script type="application/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="application/javascript" src="js/bootstrap.min.js"></script>
+	</body>
 </html>
