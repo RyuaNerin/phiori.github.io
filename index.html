@@ -13,7 +13,7 @@
 				<h1>phiori<br /><small>우카가카를 위한 python3 기반의 SHIORI</small></h1>
 				<br />
 				<div>
-					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.1/phiori-1.1.zip">두 번째 배포 버전을 다운로드</a>
+					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.1/phiori-1.1.zip">phiori v1.2.1 다운로드</a>
 					<a class="btn btn-lg btn-default" href="https://github.com/minacle/phiori/archive/master.zip">개발 단계의 최신 소스 코드를 다운로드</a>
 					<a class="btn btn-lg btn-link" href="https://github.com/minacle/phiori/releases" target="_blank">릴리즈 목록</a>
 				</div>
@@ -30,8 +30,9 @@
     +-myghost/
       +-ghost/
         +-master/
+          +-dlls/
+          +-libs/
           +-phiori/
-          +-lib.zip
           +-phiori.dll
           +-python33.dll</pre>
 				<br />
@@ -246,34 +247,81 @@ def stroke(**args):
 					</dd>
 				</dl>
 				<h2>기본적으로 제공되는 변수</h2>
+				<br />
+				<p class="lead">phiori에서 제공하는 모든 변수는 <em>phiori</em> 개체를 통해 사용할 수 있습니다.</p>
 				<dl>
-					<dt><p class="big"><em class="text-info">dict</em> <kbd><b>config</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-info">dict</em> phiori.<kbd><b>config</b></kbd></p></dt>
 					<dd>
 						<p><code>config.txt</code>로부터 읽어들인 설정을 제공합니다. 형식은 문자열로 고정되며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>encoding</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> phiori.<kbd><b>encoding</b></kbd></p></dt>
 					<dd>
 						<p>python3가 사용하는 기본 인코딩을 제공합니다. <code>sys.getdefaultencoding()</code>와 같습니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>locale</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> phiori.<kbd><b>locale</b></kbd></p></dt>
 					<dd>
 						<p>현재 시스템의 기본 로케일을 제공합니다. <code>locale.getdefaultlocale()</code>와 같습니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> <kbd><b>info</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> phiori.<kbd><b>info</b></kbd></p></dt>
 					<dd>
 						<p>베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> <kbd><b>path</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">str</em> phiori.<kbd><b>path</b></kbd></p></dt>
 					<dd>
 						<p><code>phiori.dll</code>이 있는 디렉토리 위치를 제공합니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> <kbd><b>res</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-danger">readonly</em> <em class="text-info">dict</em> phiori.<kbd><b>res</b></kbd></p></dt>
 					<dd>
 						<p>베이스웨어로부터 리소스를 요청받았을 때 보내는 <code>resource.txt</code>로부터 읽어들인 리소스를 제공합니다.</p>
 					</dd>
-					<dt><p class="big"><em class="text-info">dict</em> <kbd><b>var</b></kbd></p></dt>
+					<dt><p class="big"><em class="text-info">dict</em> phiori.<kbd><b>var</b></kbd></p></dt>
 					<dd>
 						<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
+					</dd>
+				</dl>
+			</section>
+			<section id="helpers">
+				<h1>편리한 기능</h1>
+				<br />
+				<p class="lead">작업의 편의를 위해 사쿠라 스크립트를 대체하는 몇 가지의 메소드를 제공합니다.</p>
+				<dl>
+					<dt>
+						<p class="big">
+							<em class="text-info">str</em> <kbd><b>makemenu</b></kbd><big>(</big><em>*args</em><big>)</big>
+							<br />
+							<em class="text-info">str</em> <kbd><b>makemenu</b></kbd><big>(</big><em>**kwargs</em><big>)</big>
+							<br />
+						</p>
+					</dt>
+					<dd>
+						<p>메뉴를 만듭니다. 위치 의존 인수일 경우 선택지 ID와 표시 이름이 같은 메뉴가 생성되고, 키워드 인수일 경우 파라메터 이름이 키의 문자열 표현이고, 표시 이름이 값의 문자열 표현인 메뉴가 생셩됩니다.</p>
+<pre>makemenu("메뉴1", "메뉴2", "메뉴3")</pre>
+<pre>makemenu(menu1="메뉴1", menu2="메뉴2", menu3="메뉴3")</pre>
+					</dd>
+					<dt>
+						<p class="big">
+							<em class="text-info">str</em> <kbd><b>makemenuitem</b></kbd><big>(</big><em>title</em><big>)</big>
+							<br />
+							<em class="text-info">str</em> <kbd><b>makemenuitem</b></kbd><big>(</big><em>title</em>, <em>id</em>, <em>*args</em><big>)</big>
+						</p>
+					</dt>
+					<dd>
+						<p><em>title</em>로 표시되는 메뉴 항목을 만듭니다. <em>id</em>를 넘겨받았다면 선택지 ID가 <em>id</em>로 지정됩니다. <em>id</em>가 On 이벤트라면 <em>args</em>가 이벤트의 변수로서 넘어갑니다.</p>
+<pre>makemenuitem("취소")</pre>
+<pre>makemenuitem("랜덤 토크", "OnTalk")</pre>
+<pre>makemenuitem("상세 메뉴", "OnMenuSelect", "alternative")</pre>
+					</dd>
+					<dt>
+						<p class="big">
+							<em class="text-info">str</em> <kbd><b>say</b></kbd><big>(</big><em>narrator</em>, <em>text=None</em><big>)</big>
+							<br />
+							<em class="text-info">str</em> <kbd><b>say</b></kbd><big>(</big><em>narrator</em>, <em>surface</em>, <em>text</em><big>)</big>
+						</p>
+					</dt>
+					<dd>
+						<p><em>narrator</em>에게 <em>text</em>라고 말하게 합니다. <em>surface</em>가 주어진 경우 지정된 서베이스를 표시하게 합니다.</p>
+<pre>say(1, "나는 케로야.")</pre>
+<pre>say(0, 5, "나는 사쿠라야!")</pre>
 					</dd>
 				</dl>
 			</section>
