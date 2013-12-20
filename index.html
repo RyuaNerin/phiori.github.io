@@ -299,7 +299,7 @@ def stroke(**args):
 						</p>
 					</dt>
 					<dd>
-						<p>메뉴를 만듭니다. 위치 의존 인수일 경우 선택지 ID와 표시 이름이 같은 메뉴가 생성되고, 키워드 인수일 경우 파라메터 이름이 키의 문자열 표현이고, 표시 이름이 값의 문자열 표현인 메뉴가 생셩됩니다.</p>
+						<p>메뉴를 나타내는 사쿠라 스크립트를 만듭니다. 위치 의존 인수일 경우 선택지 ID와 표시 이름이 같은 메뉴가 생성되고, 키워드 인수일 경우 파라메터 이름이 키의 문자열 표현이고, 표시 이름이 값의 문자열 표현인 메뉴가 생셩됩니다.</p>
 <pre>makemenu("메뉴1", "메뉴2", "메뉴3")</pre>
 <pre>makemenu(menu1="메뉴1", menu2="메뉴2", menu3="메뉴3")</pre>
 					</dd>
@@ -311,7 +311,7 @@ def stroke(**args):
 						</p>
 					</dt>
 					<dd>
-						<p><em>title</em>로 표시되는 메뉴 항목을 만듭니다. <em>id</em>를 넘겨받았다면 선택지 ID가 <em>id</em>로 지정됩니다. <em>id</em>가 On 이벤트라면 <em>args</em>가 이벤트의 변수로서 넘어갑니다.</p>
+						<p><em>title</em>로 표시되는 메뉴 항목을 나타내는 사쿠라 스크립트를 만듭니다. <em>id</em>를 넘겨받았다면 선택지 ID가 <em>id</em>로 지정됩니다. <em>id</em>가 On 이벤트라면 <em>args</em>가 이벤트의 변수로서 넘어갑니다.</p>
 <pre>makemenuitem("취소")</pre>
 <pre>makemenuitem("랜덤 토크", "OnTalk")</pre>
 <pre>makemenuitem("상세 메뉴", "OnMenuSelect", "alternative")</pre>
@@ -324,7 +324,7 @@ def stroke(**args):
 						</p>
 					</dt>
 					<dd>
-						<p><em>narrator</em>에게 <em>text</em>라고 말하게 합니다. <em>surface</em>가 주어진 경우 지정된 서베이스를 표시하게 합니다.</p>
+						<p><em>narrator</em>가 <em>text</em>라고 말하는 사쿠라 스크립트를 만듭니다. <em>surface</em>가 주어진 경우 지정된 서페이스를 표시하게 합니다.</p>
 <pre>say(1, "나는 케로야.")</pre>
 <pre>say(0, 5, "나는 사쿠라야!")</pre>
 					</dd>
