@@ -16,7 +16,7 @@
 				<h1>phiori<br /><small>우카가카를 위한 python3 기반의 SHIORI</small></h1>
 				<br />
 				<div>
-					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.2.1/phiori-1.2.1.zip">phiori v1.2.1 다운로드</a>
+					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.3/phiori-1.3.zip">phiori v1.3 다운로드</a>
 					<a class="btn btn-lg btn-default" href="https://github.com/minacle/phiori/archive/master.zip">개발 단계의 최신 소스 코드를 다운로드</a>
 					<a class="btn btn-lg btn-link" href="https://github.com/minacle/phiori/releases" target="_blank">릴리즈 목록</a>
 				</div>
@@ -44,151 +44,6 @@
 				<p>이후 일반적인 고스트 작성 방법에 따라 descript.txt 파일을 작성합니다. 이 때, shiori는 phiori.dll으로 지정합니다.</p>
 				<pre>shiori,phiori.dll</pre>
 				<br />
-				<h2>틀</h2>
-				<br />
-				<p class="lead">descript.txt가 있는 곳과 같은 곳에 python3 스크립트 파일을 작성하여 곧바로 고스트를 만들 수 있습니다.</p>
-				<p>확장자가 <code>.py</code>인 python3 스크립트 파일을 만들어 직접 코드를 입력하거나, 아래 틀을 수정하여 사용하세요.</p>
-<pre># Startup/Close/Change events.
-@handle("OnFirstBoot")
-def firstboot(**args):
-	pass
-
-@handle("OnBoot")
-def boot(**args):
-	pass
-
-@handle("OnClose")
-def close(**args):
-	pass
-
-@handle("OnGhostChanged")
-def ghostchanged(**args):
-	pass
-
-@handle("OnGhostChanging")
-def ghostchanging(**args):
-	pass
-
-@handle("OnShellChanged")
-def shellchanged(**args):
-	pass
-
-@handle("OnShellChanging")
-def shellchanging(**args):
-	pass
-
-@handle("OnWindowStateRestore")
-def windowstaterestore(**args):
-	pass
-
-@handle("OnWindowStateMinimize")
-def windowstateminimize(**args):
-	pass
-
-# Vanish events.
-@handle("OnVanishSelecting")
-def vanishselecting(**args):
-	pass
-
-@handle("OnVanishSelected")
-def vanishselected(**args):
-	pass
-
-@handle("OnVanishCancel")
-def vanishcancel(**args):
-	pass
-
-@handle("OnVanishButtonHold")
-def vanishbuttonhold(**args):
-	pass
-
-@handle("OnVanished")
-def vanished(**args):
-	pass
-
-# Choice events.
-@handle("OnChoiceSelect")
-def choiceselect(**args):
-	pass
-
-@handle("OnChoiceTimeout")
-def choicetimeout(**args):
-	pass
-
-@handle("OnAnchorSelect")
-def anchorselect(**args):
-	pass
-
-# Surface events.
-@handle("OnSurfaceRestore")
-def surfacerestore(**args):
-	pass
-
-# Mouse events.
-@handle("OnMouseClick")
-def mouseclick(**args):
-	pass
-
-@handle("OnMouseDoubleClick")
-def mousedoubleclick(**args):
-	pass
-
-# Install events.
-@handle("OnInstallBegin")
-def installbegin(**args):
-	pass
-
-@handle("OnInstallComplete")
-def installcomplete(**args):
-	pass
-
-@handle("OnInstallFailure")
-def installfailure(**args):
-	pass
-
-@handle("OnInstallRefuse")
-def installrefuse(**args):
-	pass
-
-# Network update events.
-@handle("OnUpdateBegin")
-def updatebegin(**args):
-	pass
-
-@handle("OnUpdateComplete")
-def updatecomplete(**args):
-	pass
-
-@handle("OnUpdateFailure")
-def updatefailure(**args):
-	pass
-
-@handle("OnUpdate.OnDownloadBegin")
-def update_downloadbegin(**args):
-	pass
-
-@handle("OnUpdate.OnMD5CompareBegin")
-def update_md5comparebegin(**args):
-	pass
-
-@handle("OnUpdate.OnMD5CompareComplete")
-def update_md5comparecomplete(**args):
-	pass
-
-@handle("OnUpdate.OnMD5CompareFailure")
-def update_md5comparefailure(**args):
-	pass
-
-# phiori events.
-@handle("OnTalk")
-def talk(**args):
-	pass
-
-@handle("OnStroke")
-def stroke(**args):
-	pass
-</pre>
-				<br />
 				<h2>예시</h2>
 				<br />
 				<p class="lead">phiori를 이용해 고스트를 만드는 기본적인 예시를 몇 개 준비했습니다.</p>
@@ -202,8 +57,7 @@ def mousedoubleclick(**args):
 	write(r"\0\s0")
 	write(random.choice(["뭔데.", "응?", "왜."]))
 	write(r"\w4\n\n")
-	write(r"\![*]\q[뭔가 말해봐,OnTalk]\n")
-	write(r"\![*]\q[아무것도 아니야,cancel]\n")
+	write(makemenu(OnTalk="뭔가 말해봐", cancel=random.choice(["아무것도 아니야.", "심심해서 불러봤어."])))
 	write(r"\e")</pre>
 				<h3>랜덤 토크</h3>
 <pre>@handle("OnTalk")
@@ -219,6 +73,14 @@ def talk(**args):
 def stroke(**args):
 	if args["Reference1"] == "Head":
 		write(r"\0\s1…\w4…\w8기분은 \w4좋네…\e")</pre>
+				<h3>시보</h3>
+<pre>@handle("OnHourChange")
+def hourchange(**args):
+	hour = datetime.datetime.today().hour
+	if hour == 0:
+		return r"\1\s0\0\s0자정이네.\n\n\w8\1슬슬 졸리지 않아?\n\n\w8\0않아.\n\n\1…\w4…\w4.\e"
+	if hour == 12:
+		return r"\1\s0\0\s0정오네.\n\n\w8\1점심밥 먹자 점심밥.\n\n\w8\0잘래.\n\n\1…\w4…\w4.\e"</pre>
 				<br/>
 			</section>
 			<br />
@@ -228,6 +90,7 @@ def stroke(**args):
 				<p class="lead">작업의 편의와 확장성을 위해 phiori에서는 전역 사전에 몇 가지 요소를 기본적으로 제공합니다.</p>
 				<h2>기본적으로 포함되는 모듈</h2>
 				<ul>
+					<li>datetime</li>
 					<li>json</li>
 					<li>os</li>
 					<li>random</li>
@@ -283,6 +146,10 @@ def stroke(**args):
 					<dd>
 						<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
 					</dd>
+					<dt><p class="big"><em class="text-info">dict</em> phiori.<kbd><b>words</b></kbd></p></dt>
+					<dd>
+						<p><code>words.dic</code>로부터 읽어들인 어휘 사전을 제공합니다. 형식을 보존하며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
+					</dd>
 				</dl>
 			</section>
 			<section id="helpers">
@@ -331,14 +198,237 @@ def stroke(**args):
 				</dl>
 			</section>
 			<section id="original_event">
-				<h1>독자 이벤트</h1>
+				<h1>고유 이벤트</h1>
 				<br />
-				<p class="lead">작업의 편의를 위해 phiori에서는 몇 개의 독자 이벤트를 제공합니다.</p>
-				<h2>OnTalk</h2>
-				<p>랜덤 토크 이벤트입니다. 사용자가 임의로 부르지 않을 경우엔 시간이 흐름에 따라 스스로 발동합니다.</p>
+				<p class="lead">작업의 편의를 위해 phiori에서는 몇 개의 고유 이벤트를 제공합니다.</p>
+				<h2>OnCharacterMouseClick</h2>
+				<p>캐릭터 클릭 이벤트입니다. 사쿠라와 케로를 제외한 캐릭터를 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>캐릭터 ID (2 이상)</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnCharacterMouseDoubleClick</h2>
+				<p>캐릭터 더블 클릭 이벤트입니다. 사쿠라와 케로를 제외한 캐릭터를 더블 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>캐릭터 ID (2 이상)</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnDayChange</h2>
+				<p>날짜 변경 이벤트입니다. 날짜가 바뀌면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>시스템 업타임 (시간 단위)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>잘려보일 때 1, 아니면 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>겹쳐있을 때 1, 아니면 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>cantalk가 재생될 때 1, 아니면 0.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnHourChange</h2>
+				<p>시간 변경 이벤트입니다. 시간이 바뀌면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>시스템 업타임 (시간 단위)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>잘려보일 때 1, 아니면 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>겹쳐있을 때 1, 아니면 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>cantalk가 재생될 때 1, 아니면 0.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnKasanari</h2>
+				<p>겹침 이벤트입니다. 일정 시간 이상 캐릭터가 서로 겹쳐있으면 발동합니다.</p>
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<p><i>인수 없음.</i></p>
+					</div>
+				</div>
+				<h2>OnKeroMouseClick</h2>
+				<p>케로 클릭 이벤트입니다. 케로측 캐릭터를 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>항상 1.</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnKeroMouseDoubleClick</h2>
+				<p>케로 더블 클릭 이벤트입니다. 케로측 캐릭터를 더블 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>항상 1.</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnMikire</h2>
+				<p>화면 이탈 이벤트입니다. 고스트가 일정 시간 이상 화면을 벗어나 잘려보이면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p><i>인수 없음.</i></p>
+					</div>
+				</div>
+				<h2>OnSakuraMouseClick</h2>
+				<p>사쿠라 클릭 이벤트입니다. 사쿠라측 캐릭터를 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<h2>OnSakuraMouseDoubleClick</h2>
+				<p>사쿠라 더블 클릭 이벤트입니다. 사쿠라측 캐릭터를 더블 클릭하면 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<dl>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference0</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 X좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference1</b></kbd></p></dt>
+							<dd>
+								<p>마우스 커서의 Y좌표 (로컬 좌표)</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference2</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><big>(</big><em class="text-info">str</em><big>)</big> <em class="text-info">int</em> <kbd><b>Reference3</b></kbd></p></dt>
+							<dd>
+								<p>항상 0.</p>
+							</dd>
+							<dt><p class="big"><em class="text-info">str</em> <kbd><b>Reference4</b></kbd></p></dt>
+							<dd>
+								<p>닿음 판정 식별자.</p>
+							</dd>
+						</dl>
 					</div>
 				</div>
 				<h2>OnStroke</h2>
@@ -359,6 +449,13 @@ def stroke(**args):
 								<p>쓰다듬은 정도</p>
 							</dd>
 						</dl>
+					</div>
+				</div>
+				<h2>OnTalk</h2>
+				<p>랜덤 토크 이벤트입니다. 사용자가 임의로 부르지 않을 경우엔 시간이 흐름에 따라 스스로 발동합니다.</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p><i>인수 없음.</i></p>
 					</div>
 				</div>
 				<br />
