@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>phiori - 우카가카를 위한 python3 기반의 SHIORI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/phiori.css" />
@@ -26,6 +27,7 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#how_to_use">시작하기</a></li>
 						<li><a href="#bundle">제공되는 기본적인 요소</a></li>
+						<li><a href="#preconfig">미리 구성</a></li>
 						<li><a href="#helpers">편리한 기능</a></li>
 						<li><a href="#original_event">고유 이벤트</a></li>
 					</ul>
@@ -165,13 +167,71 @@ def hourchange(**args):
 					</dd>
 					<dt><p class="big"><em class="text-info">dict</em> phiori.<kbd><b>var</b></kbd></p></dt>
 					<dd>
-						<p><code>variable.txt</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
+						<p><code>variable.dat</code>로부터 읽어들인 고스트 변수 사전을 제공합니다. 형식을 보존하며, 변경 사항은 실시간으로 저장됩니다.</p>
 					</dd>
 					<dt><p class="big"><em class="text-info">dict</em> phiori.<kbd><b>words</b></kbd></p></dt>
 					<dd>
 						<p><code>words.dic</code>로부터 읽어들인 어휘 사전을 제공합니다. 형식을 보존하며, 변경 사항은 phiori가 정상적으로 언로드될 때 저장됩니다.</p>
 					</dd>
 				</dl>
+			</section>
+			<section id="preconfig">
+				<h1>미리 구성</h1>
+				<br />
+				<p class="lead">기본적으로 제공되는 몇 가지의 변수를 사용하기 위해 미리 만들어 사용할 수 있는 파일을 제공합니다.</p>
+				<h2>config.txt</h2>
+				<p>phiori에서 <em>읽고 쓸 수 있는</em> 설정 보존 파일입니다. 형식은 descript.txt 스타일을 따르며, 모든 값은 텍스트로서 취급됩니다.</p>
+				<br />
+				<p><strong>config.txt</strong></p>
+<pre>talk.interval,60
+temae,1
+debug,1</pre>
+				<br />
+				<p><strong>Python3 스크립트</strong></p>
+<pre>print(phiori.config["talk.interval"])
+print(phiori.config["temae"])
+print(phiori.config["debug"])</pre>
+<pre>phiori.config["talk.interval"] = 60
+phiori.config["temae"] = 1
+phiori.config["debug"] = 1</pre>
+				<h2>resource.txt</h2>
+				<p>phiori에서 NOTIFY 요청을 받았을 때 반환하는 값이 들어있는 <em>읽기 전용</em> 리소스 파일입니다. 형식은 descript.txt 스타일을 따르며, 모든 값은 텍스트로서 취급됩니다.</p>
+				<br />
+				<p><strong>resource.txt</strong></p>
+<pre>homeurl,http://ukagaka.example.com/ghost/
+vanishbuttonvisible,0</pre>
+				<br />
+				<p><strong>Python3 스크립트</strong></p>
+<pre>print(phiori.res["homeurl"])
+print(phiori.res["vanishbuttonvisible"])</pre>
+				<h2>words.dic</h2>
+				<p>phiori에서 <em>읽고 쓸 수 있는</em> 어휘 사전 파일입니다. 형식은 JSON이며, 모든 값은 형식이 유지됩니다.</p>
+				<br />
+				<p><strong>words.dic</strong></p>
+<pre>{
+    "name": [
+        "사쿠라",
+        "케로"
+    ],
+    "food": [
+        "붕어빵",
+        "사과",
+        "포키"
+    ]
+}</pre>
+				<br />
+				<p><strong>Python3 스크립트</strong></p>
+<pre>print(phiori.words["name"][0])
+print(random.choice(phiori.words["food"]))</pre>
+<pre>phiori.words["name"] = [
+	"사쿠라",
+	"케로"
+]
+phiori.words["food"] = [
+	"붕어빵",
+	"사과",
+	"포키"
+]</pre>
 			</section>
 			<section id="helpers">
 				<h1>편리한 기능</h1>
