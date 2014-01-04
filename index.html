@@ -39,7 +39,7 @@
 				<h1>phiori<br /><small>우카가카를 위한 python3 기반의 SHIORI</small></h1>
 				<br />
 				<div>
-					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.3/phiori-1.3.zip">phiori v1.3 다운로드</a>
+					<a class="btn btn-lg btn-primary" href="https://github.com/minacle/phiori/releases/download/v1.3.1/phiori-1.3.1.zip">phiori v1.3.1 다운로드</a>
 					<a class="btn btn-lg btn-default" href="https://github.com/minacle/phiori/archive/master.zip">개발 단계의 최신 소스 코드를 다운로드</a>
 					<a class="btn btn-lg btn-link" href="https://github.com/minacle/phiori/releases" target="_blank">릴리즈 목록</a>
 				</div>
@@ -85,11 +85,10 @@ def mousedoubleclick(**args):
 				<h3>랜덤 토크</h3>
 <pre>@handle("OnTalk")
 def talk(**args):
-	food = random.choice(["붕어빵", "고기만두", "타코야키"])
-	write(random.choice([
+	write([
 		r"\1\s0\0\s4후우…\n\n\w9\1무슨 일이야?\n\n\w9\0\s0갑자기 {} 먹고 싶어.\n\n\w9\1%username에게 사달라고 해.\n\n\w9\0\s8이녀석은 분명 사들고 와서 내 눈 앞에서 전부 먹어치울 거야. \w6틀림 없어.\n\n\w9\1…….",
 		r"\1\s0\0\s7…\w8…\w8.\n\n\w4\w8\w9\1뭐…뭐야, \w4무섭잖아.\n\n\w9\0내가 사 놓은 {}, 네가 먹었냐.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w4.\n\n\w9\1…\w4…\w4.\n\n\w9\0…\w4…\w8뭔데, 없애버린다.\n\n\w2\1제, \w4제가 잘못했습니다…\n\n\w9\0…\w4…\w8\s4후우…",
-	]), food)
+	], ["붕어빵", "고기만두", "타코야키"])
 	write(r"\e")</pre>
 				<h3>쓰다듬기 판정</h3>
 <pre>@handle("OnStroke")
