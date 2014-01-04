@@ -78,7 +78,7 @@ def boot(**args):
 <pre>@handle("OnMouseDoubleClick")
 def mousedoubleclick(**args):
 	write(r"\0\s0")
-	write(random.choice(["뭔데.", "응?", "왜."]))
+	write(["뭔데.", "응?", "왜."])
 	write(r"\w4\n\n")
 	write(makemenu(OnTalk="뭔가 말해봐", cancel=random.choice(["아무것도 아니야.", "심심해서 불러봤어."])))
 	write(r"\e")</pre>
