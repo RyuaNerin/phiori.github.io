@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>phiori - 우카가카를 위한 python3 기반의 SHIORI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/highlight/styles/default.css" />
+		<link rel="stylesheet" type="text/css" href="/css/phiori.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<div class="pull-right">
+					<a class="btn btn-link btn-xs" href="/"><span class="glyphicon glyphicon-globe"></span></a>
+				</div>
+				<h3>phiori</h3>
+				<ul class="nav nav-pills nav-justified">
+					<li class="active"><a href=".">처음</a></li>
+					<li><a href="howtouse.html">시작하기</a></li>
+					<li><a href="tutorial.html">걸음마</a></li>
+					<li><a href="document.html">문서</a></li>
+					<li><a href="download.html">내려받기</a></li>
+					<li><a href="https://github.com/minacle/phiori">GitHub</a></li>
+				</ul>
+			</div>
+			<div>
+				<div class="jumbotron jumbotron-centre">
+					<h1>phiori</h1>
+					<p class="lead">우카가카를 위한 python3 기반의 SHIORI</p>
+				</div>
+				<div>
+					<div>
+						<h3>손쉬운 이벤트 핸들링</h3>
+						<pre><code>@handle("OnBoot")
+def boot(**args):
+	write(r"\1\s0\0\s0잘 지냈어?\e")</code></pre>
+					</div>
+					<div>
+						<h3>간편한 임의 대사</h3>
+						<pre><code>@handle("OnGhostChanged")
+def ghostchanged(**args):
+	write(r"\1\s0\0\s0")
+	write(
+		[
+			"{Reference0}씨, 수고 많았어!",
+			"{Reference0}씨랑 교대했어!"
+		],
+		**args
+	)
+	write(r"\e")</code></pre>
+					</div>
+					<div>
+						<h3>편리한 고유 이벤트</h3>
+						<pre><code>@handle("OnStroke")
+def stroke(**args):
+	if args[1] == "Head":
+		write(r"\0\s1기분은…… \w6좋네…….\e")</code></pre>
+					</div>
+				</div>
+			</div>
+			<div>
+				<hr />
+				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
+			</div>
+		</div>
+		<script type="application/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="application/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="/highlight/highlight.pack.js"></script>
+		<script type="application/javascript">
+			hljs.configure({tabReplace: '  '});
+			hljs.initHighlightingOnLoad();
+		</script>
+	</body>
+</html>

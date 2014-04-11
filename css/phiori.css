@@ -1,6 +1,6 @@
 /* default */
 body, h1, h2, h3, h4, h5, h6 {
-	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', '나눔바른고딕', 'NanumBarunGothic', '나눔고딕', 'NanumGothic', sans-serif;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'メイリオ', 'Meiryo', 'Takao Pゴシック', 'TakaoPGothic', '游ゴシック', 'Yu Gothic', '나눔바른고딕', 'NanumBarunGothic', '나눔고딕', 'NanumGothic', sans-serif;
 }
 
 code, kbd, pre, samp {
@@ -12,8 +12,21 @@ ruby.ukagaka>rb {
 	font-family: 'メイリオ', 'Meiryo', 'Takao Pゴシック', 'TakaoPGothic', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
+/* override */
+.jumbotron {
+	background: transparent;
+}
+
+.jumbotron.jumbotron-centre {
+	text-align: center;
+}
+
 /* class */
 .big {
 	font-size: 16px;
 	font-weight: normal;
+}
+
+.content {
+	margin-top: 20px;
 }
