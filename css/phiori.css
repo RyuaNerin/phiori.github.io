@@ -30,3 +30,29 @@ ruby.ukagaka>rb {
 .content {
 	margin-top: 20px;
 }
+
+.master {
+	padding-top: 48px;
+	padding-bottom: 48px;
+	text-align: center;
+}
+
+.master > h1 {
+	font-size: 96px;
+}
+
+.master > .lead {
+	font-size: 28px;
+	color: #999;
+}
+
+.globalang {
+	text-align: center;
+}
+
+.globalang ul {
+	list-style-type: none;
+	padding: 0;
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
