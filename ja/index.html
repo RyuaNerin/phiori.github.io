@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 		<meta charset="utf-8" />
-		<title>phiori - 伺かのための python3基盤の SHIOR</title>
+		<title>phiori - 伺かのためのpython3基盤のSHIORI</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
@@ -17,25 +17,25 @@
 				</div>
 				<h3>phiori</h3>
 				<ul class="nav nav-pills nav-justified">
-					<li><a href=".">最初</a></li>
+					<li class="active"><a href=".">最初</a></li>
 					<li><a href="howtouse.html">始める</a></li>
 					<li><a href="tutorial.html">第一歩</a></li>
 					<li><a href="document.html">文書</a></li>
-					<li class="active"><a href="download.html">ダウンロード</a></li>
+					<li><a href="download.html">ダウンロード</a></li>
 					<li><a href="https://github.com/minacle/phiori">GitHub</a></li>
 				</ul>
 			</div>
 			<div>
 				<div class="jumbotron jumbotron-centre">
 					<h1>phiori</h1>
-					<p class="lead">伺かのための python3基盤の SHIORI</p>
+					<p class="lead">伺かのためのpython3基盤のSHIORI</p>
 				</div>
 				<div>
 					<div>
 						<h3>たやすいイベントハンドリング</h3>
 						<pre><code>@handle("OnBoot")
 def boot(**args):
-	write(r"\1\s0\0\s0やぁ、元気だった？\e")</code></pre>
+	write(r"\1\s0\0\s0元気だった？\e")</code></pre>
 					</div>
 					<div>
 						<h3>簡単なランダムセリフ</h3>
@@ -56,12 +56,13 @@ def ghostchanged(**args):
 						<pre><code>@handle("OnStroke")
 def stroke(**args):
 	if args[1] == "Head":
-		write(r"\0\s1気持ち…… \w6いいね…….\e")</code></pre>
+		write(r"\0\s1気持ち……\w6いいね……。\e")</code></pre>
 					</div>
 				</div>
 			</div>
 			<div>
 				<hr />
+				<p class="text-muted">Translated by <a href="https://twitter.com/CodeSadAfter2">RollingHamster</a>.</p>
 				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
 			</div>
 		</div>

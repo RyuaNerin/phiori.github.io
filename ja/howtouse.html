@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 		<meta charset="utf-8" />
-		<title>ダウンロード - phiori</title>
+		<title>始める - phiori</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
@@ -18,10 +18,10 @@
 				<h3>phiori</h3>
 				<ul class="nav nav-pills nav-justified">
 					<li><a href=".">最初</a></li>
-					<li><a href="howtouse.html">始める</a></li>
+					<li class="active"><a href="howtouse.html">始める</a></li>
 					<li><a href="tutorial.html">第一歩</a></li>
 					<li><a href="document.html">文書</a></li>
-					<li class="active"><a href="download.html">ダウンロード</a></li>
+					<li><a href="download.html">ダウンロード</a></li>
 					<li><a href="https://github.com/minacle/phiori">GitHub</a></li>
 				</ul>
 			</div>
@@ -32,8 +32,8 @@
 				<div>
 					<h2>ダウンロード</h2>
 					<p>
-						すぐに使うためには<strong>ダウンロード</strong>タップから既にコンバイルされた phioriをダウンロードし、使えばいいです。
-						ダウンロードした後、zipファイルを解凍し、作ろうとするゴーストフォルダの中に下のように入れてください。
+						すぐに使うためには、<strong>ダウンロード</strong>タブから既にコンパイルされたphioriをダウンロードし、使えばいいです。
+						ダウンロードした後、zipファイルを解凍し、作ろうとするゴーストのフォルダーの中に下のように入れてください。
 					</p>
 					<pre>home/
 +- ghost/
@@ -45,7 +45,7 @@
             +- <strong>phiori/</strong>
             +- <strong>msvcr100.dll</strong>
             +- <strong>phiori.dll</strong>
-            +- <strong>python33.dll</strong></pre>
+            +- <strong>python34.dll</strong></pre>
 					<p>
 						お望みならば、最新のソースコード、および以前のバージョンもダウンロードできます。
 					</p>
@@ -53,10 +53,10 @@
 				<div>
 					<h2>含まれたファイル</h2>
 					<div>
-						<h3>既にコンバイルされた phiori</h3>
+						<h3>既にコンパイルされたphiori</h3>
 						<p>
-							既にコンバイルされた phioriはphioriを成す pythonスクリプト以外にもByteコードでコンパイルされた python 3.3.3　ライブラリを含めています。
-							含められたファイルはバージョンによって違うことがありますが、大体こんな仕組みになっています。
+							既にコンパイルされたphioriには、phioriを成すpythonスクリプト以外にも、バイトコードでコンパイルされたpython3.4.0のライブラリが含められています。
+							含められたファイルは、バージョンによって異なることもありますが、大体こんな仕組みになっています。
 						</p>
 						<pre>phiori/
 +- dlls/
@@ -65,13 +65,13 @@
    +- builtins/
 +- msvcr100.dll
 +- phiori.dll
-+- python33.dll</pre>
++- python34.dll</pre>
 					</div>
 					<div>
-						<h3>phiori ソースコード</h3>
+						<h3>phioriのソースコード</h3>
 						<p>
-							phioriのソースコードは pythonスクリプト以外にも phiori.dllを作るために必要な C++ソースコードと VS12 ソリューションファイルを含めています。
-							含まれたファイルは開発状況によって異なることもありますが、大体こんな仕組みになっています。
+							phioriのソースコードには、pythonスクリプト以外にも、phiori.dllを作るために必要なC++ソースコードと、ＶＳ１２のソリューションファイルが含まれています。
+							含まれたファイルは、開発状況によって異なることもありますが、大体こんな仕組みになっています。
 						</p>
 						<pre>phiori/
 +- phiori.dll/
@@ -85,6 +85,7 @@
 			</div>
 			<div>
 				<hr />
+				<p class="text-muted">Translated by <a href="https://twitter.com/CodeSadAfter2">RollingHamster</a>.</p>
 				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
 			</div>
 		</div>
