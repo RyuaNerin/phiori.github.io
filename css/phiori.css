@@ -7,6 +7,10 @@ code, kbd, pre, samp {
 	font-family: 'Menlo', 'Monaco,Consolas', 'Courier New', '나눔고딕코딩', 'NanumGothicCoding', 'ＭＳゴシック', 'MS Gothic', '돋움체', monospace;
 }
 
+body {
+	overflow-y: scroll;
+}
+
 /* ruby */
 ruby.ukagaka>rb {
 	font-family: 'メイリオ', 'Meiryo', 'Takao Pゴシック', 'TakaoPGothic', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
@@ -55,4 +59,22 @@ ruby.ukagaka>rb {
 	padding: 0;
 	padding-top: 24px;
 	padding-bottom: 24px;
+}
+
+.method {
+	color: #333;
+	background: inherit;
+	border: inherit;
+	box-sizing: inherit;
+	box-shadow: inherit;
+	padding: inherit;
+	font-size: inherit;
+}
+
+h2 + .docitem {
+	border-top: none;
+}
+
+.docitem {
+	border-top: 1px solid #eee;
 }

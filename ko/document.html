@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>문서 - phiori</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/highlight/styles/default.css" />
+		<link rel="stylesheet" type="text/css" href="/css/phiori.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<div class="pull-right">
+					<a class="btn btn-link btn-xs" href="/"><span class="glyphicon glyphicon-globe"></span></a>
+				</div>
+				<h3>phiori</h3>
+				<ul class="nav nav-pills nav-justified">
+					<li><a href=".">처음</a></li>
+					<li><a href="howtouse.html">시작하기</a></li>
+					<li><a href="tutorial.html">걸음마</a></li>
+					<li class="active"><a href="document.html">문서</a></li>
+					<li><a href="download.html">내려받기</a></li>
+					<li><a href="https://github.com/minacle/phiori">GitHub</a></li>
+				</ul>
+			</div>
+			<div class="content">
+				<div>
+					<h2>미리 포함된 모듈</h2>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">datetime</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">json</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">os</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">random</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">re</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">sys</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">time</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">urllib</p>
+					</div>
+					<h2>미리 정의된 메소드</h2>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">early</p>
+						<ul name="args">
+							<li>dict</li>
+							<li>key</li>
+							<li>default=None</li>
+						</ul>
+						<div name="desc">
+							<em>dict</em>에 <em>key</em>가 있으면 값을 반환하고, 없으면 <em>default</em>를 값으로 설정한 뒤 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">escape</p>
+						<ul name="args">
+							<li>text</li>
+						</ul>
+						<div name="desc">
+							<em>text</em>에 있는 일부 문자를 이스케이프된 형태로 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">event</p>
+						<ul name="args">
+							<li>onid</li>
+							<li>*refs</li>
+						</ul>
+						<div name="desc">
+							<em>onid</em> 이벤트를 <em>refs</em> 인수와 함께 실행하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenu</p>
+						<ul name="args">
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							파라메터 이름과 표시 이름이 같은 여러 항목을 갖는 메뉴를 생성하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenu</p>
+						<ul name="args">
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							파라메터 이름이 인수의 키이고, 표시 이름이 인수의 값과 같은 여러 항목을 갖는 메뉴를 생성하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenuitem</p>
+						<ul name="args">
+							<li>title</li>
+						</ul>
+						<div name="desc">
+							파라메터 이름과 표시 이름이 <em>title</em>인 단일 메뉴 항목을 생성하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenuitem</p>
+						<ul name="args">
+							<li>title</li>
+							<li>id</li>
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							파라메터 이름이 <em>id</em>이고, 표시 이름이 <em>title</em>인 단일 메뉴 항목을 생성하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">print</p>
+						<ul name="args">
+							<li>*objects</li>
+							<li>sep=" "</li>
+							<li>end=r"\n"</li>
+						</ul>
+						<div name="desc">
+							<em>sep</em>로 구분되며 끝에 <em>end</em>가 붙도록 문자열화된 <em>objects</em>를 베이스웨어에 출력값으로서 전송합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">say</p>
+						<ul name="args">
+							<li>narrator</li>
+							<li>text=None</li>
+						</ul>
+						<div name="desc">
+							<em>narrator</em>가 <em>text</em>라고 말하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">say</p>
+						<ul name="args">
+							<li>narrator</li>
+							<li>surface</li>
+							<li>text</li>
+						</ul>
+						<div name="desc">
+							<em>narrator</em>가 <em>surface</em> 서페이스를 표시하며 <em>text</em>라고 말하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">wait</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							지정된 대기를 해제하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">wait</p>
+						<ul name="args">
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							<em>delay</em> 밀리초만큼 대기하는 사쿠라 스크립트를 반환합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">write</p>
+						<ul name="args">
+							<li>text</li>
+							<li>*args</li>
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							<code>print(text.format(*args, **kwargs), end="")</code>의 간단한 표현입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">writeline</p>
+						<ul name="args">
+							<li>text</li>
+							<li>*args</li>
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							<code>print(text.format(*args, **kwargs))</code>의 간단한 표현입니다.
+						</div>
+					</div>
+					<h2><kbd class="method">phiori</kbd></h2>
+					<div type="doc">
+						<p name="type">PropertyDict</p>
+						<p name="name">phiori</p>
+						<div name="desc">
+							phiori의 변수들을 갖는 개체입니다. 이 이름으로 새 전역 변수를 생성하거나 덮어쓰지 마십시오.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LivePersonaDict</p>
+						<p name="name">phiori.config</p>
+						<div name="desc">
+							<code>config.txt</code>로부터 읽어들인 설정을 제공합니다.
+							형식은 문자열로 고정됩니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.encoding</p>
+						<div name="desc">
+							베이스웨어와의 통신에 사용되는 인코딩입니다. 임의로 변경하면 오작동이 발생할 수 있습니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.locale</p>
+						<div name="desc">
+							파일 입출력에 사용되는 인코딩입니다. 임의로 변경하면 오작동이 발생할 수 있습니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.info</p>
+						<div name="desc">
+							베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.path</p>
+						<div name="desc">
+							<code>phiori.dll</code>이 있는 디렉토리 위치를 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.res</p>
+						<div name="desc">
+							베이스웨어로부터 리소스를 요청받았을 때 보내는 <code>resource.txt</code>로부터 읽어들인 리소스를 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LiveBsonDict</p>
+						<p name="name">phiori.var</p>
+						<div name="desc">
+							<code>variable.dat</code>로부터 읽어들인 고스트 변수 사전을 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LiveJsonDict</p>
+						<p name="name">phiori.words</p>
+						<div name="desc">
+							<code>words.dic</code>로부터 읽어들인 어휘 사전을 제공합니다.
+						</div>
+					</div>
+					<h2>고유 이벤트</h2>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnCharacterClick</p>
+						<div name="desc">
+							<p>
+								캐릭터 클릭 이벤트입니다. 사쿠라와 케로를 제외한 캐릭터를 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnCharacterDoubleClick</p>
+						<div name="desc">
+							<p>
+								캐릭터 더블 클릭 이벤트입니다. 사쿠라와 케로를 제외한 캐릭터를 더블 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnDayChange</p>
+						<div name="desc">
+							<p>
+								날짜 변경 이벤트입니다. 날짜가 바뀌면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											시스템 업타임 (시간 단위)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											잘려보일 때 1, 아니면 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											겹쳐있을 때 1, 아니면 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											cantalk가 재생될 때 1, 아니면 0.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnHourChange</p>
+						<div name="desc">
+							<p>
+								시간 변경 이벤트입니다. 시간이 바뀌면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											시스템 업타임 (시간 단위)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											잘려보일 때 1, 아니면 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											겹쳐있을 때 1, 아니면 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											cantalk가 재생될 때 1, 아니면 0.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKasanari</p>
+						<div name="desc">
+							<p>
+								겹침 이벤트입니다. 일정 시간 이상 캐릭터가 서로 겹쳐있으면 발동합니다.
+							</p>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKeroClick</p>
+						<div name="desc">
+							<p>
+								케로 클릭 이벤트입니다. 케로를 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKeroDoubleClick</p>
+						<div name="desc">
+							<p>
+								케로 더블 클릭 이벤트입니다. 케로를 더블 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnMikire</p>
+						<div name="desc">
+							<p>
+								화면 이탈 이벤트입니다. 고스트가 일정 시간 이상 화면을 벗어나 잘려보이면 발동합니다.
+							</p>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnSakuraClick</p>
+						<div name="desc">
+							<p>
+								사쿠라 클릭 이벤트입니다. 사쿠라를 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnSakuraDoubleClick</p>
+						<div name="desc">
+							<p>
+								사쿠라 더블 클릭 이벤트입니다. 사쿠라를 더블 클릭하면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											마우스 커서의 X 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											마우스 커서의 Y 좌표 (로컬 좌표)
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											항상 0.
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											캐릭터 ID (2 이상).
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											닿음 판정 식별자.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnStroke</p>
+						<div name="desc">
+							<p>
+								쓰다듬기 이벤트입니다. 판정 부위를 어느 정도 쓰다듬으면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											쓰다듬은 대상
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											쓰다듬은 판정 부위
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnTalk</p>
+						<div name="desc">
+							<p>
+								랜덤 토크 이벤트입니다. 사용자가 임의로 부르지 않을 경우엔 시간이 흐름에 따라 스스로 발동됩니다.
+							</p>
+						</div>
+					</div>
+					<h2>내부 형식</h2>
+					<div class="alert alert-danger">
+						<strong>주의! </strong>이 형식들은 일반적인 방법으로 사용할 수 없습니다.
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveBsonDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							실시간으로 내용이 BSON 형식으로 동기화되는 dict입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							실시간으로 내용이 동기화되는 dict입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveJsonDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							실시간으로 내용이 JSON 형식으로 동기화되는 dict입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LivePersonaDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							실시간으로 내용이 가짜 페르소나웨어 설정 형식으로 동기화되는 dict입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">PropertyDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							항목에 속성처럼 접근할 수 있는 dict입니다.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<hr />
+				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
+			</div>
+		</div>
+		<script type="application/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="application/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="/highlight/highlight.pack.js"></script>
+		<script type="application/javascript" src="/js/doclink.js"></script>
+		<script type="application/javascript">
+			hljs.configure({tabReplace: '  '});
+			hljs.initHighlightingOnLoad();
+			doclink.applySections();
+			doclink.applyLinks();
+		</script>
+	</body>
+</html>
