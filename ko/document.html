@@ -173,6 +173,17 @@
 					</div>
 					<div type="doc">
 						<p name="type">str</p>
+						<p name="name">simulate</p>
+						<ul name="args">
+							<li>name</li>
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							<em>name</em> 이벤트를 가상 실행한 결과를 반환합니다. <em>args</em>가 레퍼런스로서 전달됩니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
 						<p name="name">wait</p>
 						<ul name="args">
 						</ul>
@@ -238,17 +249,17 @@
 						</div>
 					</div>
 					<div type="doc">
-						<p name="type">str</p>
-						<p name="name">phiori.locale</p>
-						<div name="desc">
-							파일 입출력에 사용되는 인코딩입니다. 임의로 변경하면 오작동이 발생할 수 있습니다.
-						</div>
-					</div>
-					<div type="doc">
 						<p name="type">dict</p>
 						<p name="name">phiori.info</p>
 						<div name="desc">
 							베이스웨어가 NOTIFY해 보낸 모든 값을 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.locale</p>
+						<div name="desc">
+							파일 입출력에 사용되는 인코딩입니다. 임의로 변경하면 오작동이 발생할 수 있습니다.
 						</div>
 					</div>
 					<div type="doc">
@@ -266,6 +277,13 @@
 						</div>
 					</div>
 					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.temp</p>
+						<div name="desc">
+							임시 변수 사전을 제공합니다.
+						</div>
+					</div>
+					<div type="doc">
 						<p name="type">LiveBsonDict</p>
 						<p name="name">phiori.var</p>
 						<div name="desc">
@@ -277,6 +295,108 @@
 						<p name="name">phiori.words</p>
 						<div name="desc">
 							<code>words.dic</code>로부터 읽어들인 어휘 사전을 제공합니다.
+						</div>
+					</div>
+					<h2><kbd class="method">Timer</kbd></h2>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">Timer</p>
+						<p name="args">object</p>
+						<div name="desc">
+							타이머 기능을 지원하기 위한 클래스입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">constructor</p>
+						<p name="name">__init__</p>
+						<ul name="args">
+							<li>name=None</li>
+							<li>interval=0</li>
+							<li>loop=False</li>
+						</ul>
+						<div name="desc">
+							새 타이머를 생성합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">int</p>
+						<p name="name">interval</p>
+						<div name="desc">
+							타이머의 이벤트 실행 간격입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">bool</p>
+						<p name="name">loop</p>
+						<div name="desc">
+							타이머의 반복 여부입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">name</p>
+						<div name="desc">
+							타이머의 이름입니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">start</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							타이머를 시작합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">stop</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							타이머를 중지합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.setinterval</p>
+						<ul name="args">
+							<li>interval</li>
+						</ul>
+						<div name="desc">
+							생성 후 매 <em>interval</em> 초마다 실행되는 새 타이머를 생성하고 시작합니다. 이름은 임의로 지정됩니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.setinterval</p>
+						<ul name="args">
+							<li>name</li>
+							<li>interval</li>
+						</ul>
+						<div name="desc">
+							생성 후 매 <em>interval</em> 초마다 실행되는 새 타이머를 <em>name</em> 이름으로 생성하고 시작합니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.settimeout</p>
+						<ul name="args">
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							생성 <em>delay</em> 초 후에 한 번만 실행되는 새 타이머를 생성하고 시작합니다. 이름은 임의로 지정됩니다.
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.settimeout</p>
+						<ul name="args">
+							<li>name</li>
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							생성 <em>delay</em> 초 후에 한 번만 실행되는 새 타이머를 <em>name</em> 이름으로 생성하고 시작합니다.
 						</div>
 					</div>
 					<h2>고유 이벤트</h2>
@@ -737,9 +857,45 @@
 							</p>
 						</div>
 					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnTimerElapsed</p>
+						<div name="desc">
+							<p>
+								타이머 경과 이벤트입니다. 현재 시각이 타이머에 지정된 시각을 넘어서면 발동합니다.
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											타이머 이름
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											타이머 대기 시간
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											반복되는 타이머일 경우 1, 아니면 0.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<h2>내부 형식</h2>
 					<div class="alert alert-danger">
-						<strong>주의! </strong>이 형식들은 일반적인 방법으로 사용할 수 없습니다.
+						<strong>주의! </strong>아래 형식들은 일반적인 방법으로 사용할 수 없습니다.
 					</div>
 					<div type="doc">
 						<p name="type">class</p>

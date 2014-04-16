@@ -3,9 +3,12 @@ var doclink = {
 		switch (t) {
 			case 'module':
 			case 'class':
+			case 'constructor':
 				return 'text-danger';
 				break;
 			case 'void':
+			case 'object':
+			case 'bool':
 			case 'int':
 			case 'float':
 			case 'str':
