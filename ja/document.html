@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>文書 - phiori</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/highlight/styles/default.css" />
+		<link rel="stylesheet" type="text/css" href="/css/phiori.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<div class="pull-right">
+					<a class="btn btn-link btn-xs" href="/"><span class="glyphicon glyphicon-globe"></span></a>
+				</div>
+				<h3>phiori</h3>
+				<ul class="nav nav-pills nav-justified">
+					<li><a href=".">トップ</a></li>
+					<li><a href="howtouse.html">始める</a></li>
+					<li><a href="tutorial.html">第一歩</a></li>
+					<li class="active"><a href="document.html">文書</a></li>
+					<li><a href="download.html">ダウンロード</a></li>
+					<li><a href="https://github.com/minacle/phiori">GitHub</a></li>
+				</ul>
+			</div>
+			<div class="content">
+				<div>
+					<h2>すぐ使えるモジュール</h2>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">datetime</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">json</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">os</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">random</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">re</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">sys</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">time</p>
+					</div>
+					<div type="doc">
+						<p name="type">module</p>
+						<p name="name">urllib</p>
+					</div>
+					<h2>すぐ使えるメソッド</h2>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">early</p>
+						<ul name="args">
+							<li>dict</li>
+							<li>key</li>
+							<li>default=None</li>
+						</ul>
+						<div name="desc">
+							<em>dict</em>に<em>key</em>があれば値を返し、なければ<em>default</em>を値にして返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">escape</p>
+						<ul name="args">
+							<li>text</li>
+						</ul>
+						<div name="desc">
+							<em>text</em>の一部の文字をエスケープして返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">event</p>
+						<ul name="args">
+							<li>onid</li>
+							<li>*refs</li>
+						</ul>
+						<div name="desc">
+							<em>onid</em>イベントに<em>refs</em>引数を載せて呼び出すさくらスクリプトをを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenu</p>
+						<ul name="args">
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							パラメータ名と表示名が同じ、多くの項目を持つメニューを作るさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenu</p>
+						<ul name="args">
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							パラメータ名が引数のキーで、表示名が引数の値となる、多くの項目を持つメニューを作るさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenuitem</p>
+						<ul name="args">
+							<li>title</li>
+						</ul>
+						<div name="desc">
+							パラメータ名と表示名が<em>title</em>である単一メニュー項目を生成するさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">makemenuitem</p>
+						<ul name="args">
+							<li>title</li>
+							<li>id</li>
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							パラメータ名が<em>id</em>で、表示名が<em>title</em>である単一メニュー項目を生成するさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">print</p>
+						<ul name="args">
+							<li>*objects</li>
+							<li>sep=" "</li>
+							<li>end=r"\n"</li>
+						</ul>
+						<div name="desc">
+							<em>sep</em>で区割し、最後に<em>end</em>がつく、文字化された<em>objects</em>をベースウェアへ出力します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">say</p>
+						<ul name="args">
+							<li>narrator</li>
+							<li>text=None</li>
+						</ul>
+						<div name="desc">
+							<em>narrator</em>が<em>text</em>と喋るさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">say</p>
+						<ul name="args">
+							<li>narrator</li>
+							<li>surface</li>
+							<li>text</li>
+						</ul>
+						<div name="desc">
+							<em>narrator</em>が<em>surface</em>サーフェスを表示し、<em>text</em>と喋るさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">simulate</p>
+						<ul name="args">
+							<li>name</li>
+							<li>*args</li>
+						</ul>
+						<div name="desc">
+							<em>name</em>イベントを仮想でコールした結果を返します。<em>args</em>がレファレンスとして渡されます。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">wait</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							指定された待ちを解除するさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">wait</p>
+						<ul name="args">
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							<em>delay</em>ミリ秒待つさくらスクリプトを返します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">write</p>
+						<ul name="args">
+							<li>text</li>
+							<li>*args</li>
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							<code>print(text.format(*args, **kwargs), end="")</code>の略です。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">writeline</p>
+						<ul name="args">
+							<li>text</li>
+							<li>*args</li>
+							<li>**kwargs</li>
+						</ul>
+						<div name="desc">
+							<code>print(text.format(*args, **kwargs))</code>の略です。
+						</div>
+					</div>
+					<h2><kbd class="method">phiori</kbd></h2>
+					<div type="doc">
+						<p name="type">PropertyDict</p>
+						<p name="name">phiori</p>
+						<div name="desc">
+							phioriの変数を持つオブジェクトです。この名でグロバル変数を作りなおしたり上書きしたりしないでください。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LivePersonaDict</p>
+						<p name="name">phiori.config</p>
+						<div name="desc">
+							<code>config.txt</code>から読み込んだ設定を提供します。
+							タイプは文字列固定です。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.encoding</p>
+						<div name="desc">
+							ベースウェアとの通信に使われるエンコーディングです。任意に変更すると誤作動するおそれがあります。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.locale</p>
+						<div name="desc">
+							ファイルのＩ／Ｏに使われるエンコーディングです。任意に変更すると誤作動するおそれがあります。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.info</p>
+						<div name="desc">
+							ベースウェアからNOTIFYしてもらったすべての値を提供します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">phiori.path</p>
+						<div name="desc">
+							<code>phiori.dll</code>があるディレクトリのパスを提供します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.res</p>
+						<div name="desc">
+							ベースウェアがリソースを要請した時に返す、<code>resource.txt</code>から読み込んだリソースを提供します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">dict</p>
+						<p name="name">phiori.temp</p>
+						<div name="desc">
+							臨時の変数の辞書を提供します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LiveBsonDict</p>
+						<p name="name">phiori.var</p>
+						<div name="desc">
+							<code>variable.dat</code>から読み込んだゴーストの変数の辞書を提供します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">LiveJsonDict</p>
+						<p name="name">phiori.words</p>
+						<div name="desc">
+							<code>words.dic</code>から読み込んだ語彙の辞書を提供します。
+						</div>
+					</div>
+					<h2><kbd class="method">Timer</kbd></h2>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">Timer</p>
+						<p name="args">object</p>
+						<div name="desc">
+							タイマー機能をサポートするためのクラスです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">constructor</p>
+						<p name="name">__init__</p>
+						<ul name="args">
+							<li>name=None</li>
+							<li>interval=0</li>
+							<li>loop=False</li>
+						</ul>
+						<div name="desc">
+							新しいタイマーを生成します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">int</p>
+						<p name="name">interval</p>
+						<div name="desc">
+							タイマーのイベントコールまでの間合いです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">bool</p>
+						<p name="name">loop</p>
+						<div name="desc">
+							タイマーがルーフするかどうかです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">str</p>
+						<p name="name">name</p>
+						<div name="desc">
+							タイマーの名前です。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">start</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							タイマーを始めます。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">void</p>
+						<p name="name">stop</p>
+						<ul name="args">
+						</ul>
+						<div name="desc">
+							タイマーを中止します。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.setinterval</p>
+						<ul name="args">
+							<li>interval</li>
+						</ul>
+						<div name="desc">
+							生成後、毎<em>interval</em>秒ごとにイベントコールする新しいタイマーを生成し、始めます。名前は任意で決められます。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.setinterval</p>
+						<ul name="args">
+							<li>name</li>
+							<li>interval</li>
+						</ul>
+						<div name="desc">
+							生成後、毎<em>interval</em>秒ごとにイベントコールする新しいタイマーを<em>name</em>という名で生成し、始めます。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.settimeout</p>
+						<ul name="args">
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							生成後、<em>delay</em>秒目に一度だけイベントコールする新しいタイマーを生成し、始めます。名前は任意で決められます。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">Timer</p>
+						<p name="name">Timer.settimeout</p>
+						<ul name="args">
+							<li>name</li>
+							<li>delay</li>
+						</ul>
+						<div name="desc">
+							生成後、<em>delay</em>秒目に一度だけイベントコールする新しいタイマーを<em>name</em>という名で生成し、始めます。
+						</div>
+					</div>
+					<h2>固有イベント</h2>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnCharacterClick</p>
+						<div name="desc">
+							<p>
+								キャラクタークリックイベントです。さくらとケロ以外のキャラをクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											キャラクターＩＤ（２以上）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnCharacterDoubleClick</p>
+						<div name="desc">
+							<p>
+								キャラクターダブルクリックイベントです。さくらとケロ以外のキャラをダブルクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											キャラクターＩＤ（２以上）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnDayChange</p>
+						<div name="desc">
+							<p>
+								日付変更イベントです。日付が変わると発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											連続起動時間（時間段位）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											見切れ時に1、それ以外は0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											重なり時に1、それ以外は0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											cantalkが再生されるときに1、それ以外は0。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnHourChange</p>
+						<div name="desc">
+							<p>
+								時間変更イベントです。時間が変わると発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											連続起動時間（時間段位）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											見切れ時に1、それ以外は0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											重なり時に1、それ以外は0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											cantalkが再生されるときに1、それ以外は0。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKasanari</p>
+						<div name="desc">
+							<p>
+								重なりイベントです。一定時間以上キャラが重ねていると発動します。
+							</p>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKeroClick</p>
+						<div name="desc">
+							<p>
+								ケロクリックイベントです。ケロをクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											常に1。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnKeroDoubleClick</p>
+						<div name="desc">
+							<p>
+								ケロダブルクリックイベントです。ケロをダブルクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											常に1。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnMikire</p>
+						<div name="desc">
+							<p>
+								見切れイベントです。ゴーストが一定時間以上画面の外に切られて表示されると発動します。
+							</p>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnSakuraClick</p>
+						<div name="desc">
+							<p>
+								さくらクリックイベントです。さくらをクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnSakuraDoubleClick</p>
+						<div name="desc">
+							<p>
+								さくらダブルクリックイベントです。さくらをダブルクリックすれば、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											マウスカーソルのＸ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											マウスカーソルのＹ座標（ローカル座標）
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference3</p>
+										<div name="desc">
+											常に0。
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference4</p>
+										<div name="desc">
+											当たり判定の識別子。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnStroke</p>
+						<div name="desc">
+							<p>
+								なでなでイベントです。当たり判定をある程度なでると発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											当たり判定の持ち主
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											当たり判定の名前
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnTalk</p>
+						<div name="desc">
+							<p>
+								ランダムトークイベントです。使用者が呼ばない場合は、時間の流れによって、勝手に発動します。
+							</p>
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">event</p>
+						<p name="name">OnTimerElapsed</p>
+						<div name="desc">
+							<p>
+								タイマー経過イベントです。現在時刻がタイマーの指定された時刻を過ぎたら、発動します。
+							</p>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div type="argdoc">
+										<p name="type">str</p>
+										<p name="name">Reference0</p>
+										<div name="desc">
+											タイマー名
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference1</p>
+										<div name="desc">
+											タイマーの間合い
+										</div>
+									</div>
+									<div type="argdoc">
+										<p name="disp">str</p>
+										<p name="type">int</p>
+										<p name="name">Reference2</p>
+										<div name="desc">
+											ループすると1、それ以外は0。
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h2>内部クラス</h2>
+					<div class="alert alert-danger">
+						<strong>ご注意！</strong>　下のクラスは、一般的な方法では使えられません。
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveBsonDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							内容がリアルタイムでBSON形式で保存されるdictです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							内容がリアルタイムで保存されるdictです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LiveJsonDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							内容がリアルタイムでJSON形式で保存されるdictです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">LivePersonaDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							内容がリアルタイムで偽ペルソナウェア設定形式で保存されるdictです。
+						</div>
+					</div>
+					<div type="doc">
+						<p name="type">class</p>
+						<p name="name">PropertyDict</p>
+						<p name="args">dict</p>
+						<div name="desc">
+							項目をプロパティのように実装したdictです。
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<hr />
+				<p class="text-muted">Translated by <a href="http://minacle.it/">Minacle</a>.</p>
+				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
+			</div>
+		</div>
+		<script type="application/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="application/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="/highlight/highlight.pack.js"></script>
+		<script type="application/javascript" src="/js/doclink.js"></script>
+		<script type="application/javascript">
+			hljs.configure({tabReplace: '  '});
+			hljs.initHighlightingOnLoad();
+			doclink.applySections();
+			doclink.applyLinks();
+		</script>
+	</body>
+</html>
