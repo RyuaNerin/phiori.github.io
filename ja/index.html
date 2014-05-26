@@ -34,27 +34,27 @@
 					<div>
 						<h3>たやすいイベントハンドリング</h3>
 						<pre><code>@handle("OnBoot")
-def boot(**args):
+def boot():
 	write(r"\1\s0\0\s0元気だった？\e")</code></pre>
 					</div>
 					<div>
 						<h3>簡単なランダムセリフ</h3>
 						<pre><code>@handle("OnGhostChanged")
-def ghostchanged(**args):
+def ghostchanged(*args):
 	write(r"\1\s0\0\s0")
 	write(
 		[
-			"{Reference0}さん、お疲れさま！",
-			"{Reference0}さんと交代しました！"
+			"{}さん、お疲れさま！",
+			"{}さんと交代しました！"
 		],
-		**args
+		*args
 	)
 	write(r"\e")</code></pre>
 					</div>
 					<div>
 						<h3>便利な固有イベント</h3>
 						<pre><code>@handle("OnStroke")
-def stroke(**args):
+def stroke(*args):
 	if args[1] == "Head":
 		write(r"\0\s1気持ち……\w6いいね……。\e")</code></pre>
 					</div>
@@ -62,7 +62,7 @@ def stroke(**args):
 			</div>
 			<div>
 				<hr />
-				<p class="text-muted">Translated by <a href="https://twitter.com/CodeSadAfter2">RollingHamster</a>.</p>
+				<p class="text-muted">Translated by <a href="https://twitter.com/CodeSadAfter2">RollingHamster</a>, <a href="http://blog.naver.com/leebox91">EvieNeco</a>.</p>
 				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
 			</div>
 		</div>

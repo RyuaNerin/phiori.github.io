@@ -27,7 +27,7 @@
 			</div>
 			<div class="content">
 				<div>
-					<h2>すぐ使えるモジュール</h2>
+					<h2>あらかじめ含まれたモジュール</h2>
 					<div type="doc">
 						<p name="type">module</p>
 						<p name="name">datetime</p>
@@ -60,7 +60,18 @@
 						<p name="type">module</p>
 						<p name="name">urllib</p>
 					</div>
-					<h2>すぐ使えるメソッド</h2>
+					<h2>定義済みのデコレーター</h2>
+					<div type="doc">
+						<p name="type">decorator</p>
+						<p name="name">handle</p>
+						<ul name="args">
+							<li>*events</li>
+						</ul>
+						<div name="desc">
+							メソッドを<em>events</em>イベントのハンドラーとして生成します。
+						</div>
+					</div>
+					<h2>定義済みのメソッド</h2>
 					<div type="doc">
 						<p name="type">dict</p>
 						<p name="name">early</p>
@@ -80,7 +91,7 @@
 							<li>text</li>
 						</ul>
 						<div name="desc">
-							<em>text</em>の一部の文字をエスケープして返します。
+							<em>text</em>の一部の文字をエスケープされた形で返します。
 						</div>
 					</div>
 					<div type="doc">
@@ -101,7 +112,7 @@
 							<li>*args</li>
 						</ul>
 						<div name="desc">
-							パラメータ名と表示名が同じ、多くの項目を持つメニューを作るさくらスクリプトを返します。
+							パラメータ名と表示名が同じく、多くの項目を持つメニューを作るさくらスクリプトを返します。
 						</div>
 					</div>
 					<div type="doc">
@@ -121,7 +132,7 @@
 							<li>title</li>
 						</ul>
 						<div name="desc">
-							パラメータ名と表示名が<em>title</em>である単一メニュー項目を生成するさくらスクリプトを返します。
+							パラメータ名と表示名が<em>title</em>である単一メニュー項目を作るさくらスクリプトを返します。
 						</div>
 					</div>
 					<div type="doc">
@@ -133,7 +144,7 @@
 							<li>*args</li>
 						</ul>
 						<div name="desc">
-							パラメータ名が<em>id</em>で、表示名が<em>title</em>である単一メニュー項目を生成するさくらスクリプトを返します。
+							パラメータ名が<em>id</em>で、表示名が<em>title</em>である単一メニュー項目を作るさくらスクリプトを返します。
 						</div>
 					</div>
 					<div type="doc">
@@ -179,7 +190,7 @@
 							<li>*args</li>
 						</ul>
 						<div name="desc">
-							<em>name</em>イベントを仮想でコールした結果を返します。<em>args</em>がレファレンスとして渡されます。
+							<em>name</em>イベントを仮想で呼び出した結果を返します。<em>args</em>がレファレンスとして渡されます。
 						</div>
 					</div>
 					<div type="doc">
@@ -198,7 +209,7 @@
 							<li>delay</li>
 						</ul>
 						<div name="desc">
-							<em>delay</em>ミリ秒待つさくらスクリプトを返します。
+							<em>delay</em>ミリ秒間待つさくらスクリプトを返します。
 						</div>
 					</div>
 					<div type="doc">
@@ -230,7 +241,7 @@
 						<p name="type">PropertyDict</p>
 						<p name="name">phiori</p>
 						<div name="desc">
-							phioriの変数を持つオブジェクトです。この名でグロバル変数を作りなおしたり上書きしたりしないでください。
+							phioriの変数を持つオブジェクトです。この名でグローバル変数を作りなおしたり上書きしたりしないでください。
 						</div>
 					</div>
 					<div type="doc">
@@ -238,7 +249,7 @@
 						<p name="name">phiori.config</p>
 						<div name="desc">
 							<code>config.txt</code>から読み込んだ設定を提供します。
-							タイプは文字列固定です。
+							タイプは文字列で固定されます。
 						</div>
 					</div>
 					<div type="doc">
@@ -322,7 +333,7 @@
 						<p name="type">int</p>
 						<p name="name">interval</p>
 						<div name="desc">
-							タイマーのイベントコールまでの間合いです。
+							タイマーのイベントが呼び出されるまでの間合いです。
 						</div>
 					</div>
 					<div type="doc">
@@ -364,7 +375,7 @@
 							<li>interval</li>
 						</ul>
 						<div name="desc">
-							生成後、毎<em>interval</em>秒ごとにイベントコールする新しいタイマーを生成し、始めます。名前は任意で決められます。
+							生成された後、毎<em>interval</em>秒ごとにイベントを呼び出す新しいタイマーを生成し、始めます。名前は任意に決められます。
 						</div>
 					</div>
 					<div type="doc">
@@ -375,7 +386,7 @@
 							<li>interval</li>
 						</ul>
 						<div name="desc">
-							生成後、毎<em>interval</em>秒ごとにイベントコールする新しいタイマーを<em>name</em>という名で生成し、始めます。
+							生成された後、毎<em>interval</em>秒ごとにイベントを呼び出す新しいタイマーを<em>name</em>という名前で生成し、始めます。
 						</div>
 					</div>
 					<div type="doc">
@@ -385,7 +396,7 @@
 							<li>delay</li>
 						</ul>
 						<div name="desc">
-							生成後、<em>delay</em>秒目に一度だけイベントコールする新しいタイマーを生成し、始めます。名前は任意で決められます。
+							生成された後、<em>delay</em>秒目に一度だけイベントを呼び出す新しいタイマーを生成し、始めます。名前は任意に決められます。
 						</div>
 					</div>
 					<div type="doc">
@@ -396,7 +407,7 @@
 							<li>delay</li>
 						</ul>
 						<div name="desc">
-							生成後、<em>delay</em>秒目に一度だけイベントコールする新しいタイマーを<em>name</em>という名で生成し、始めます。
+							生成された後、<em>delay</em>秒目に一度だけイベントを呼び出す新しいタイマーを<em>name</em>という名前で生成し、始めます。
 						</div>
 					</div>
 					<h2>固有イベント</h2>
@@ -405,7 +416,7 @@
 						<p name="name">OnCharacterClick</p>
 						<div name="desc">
 							<p>
-								キャラクタークリックイベントです。さくらとケロ以外のキャラをクリックすれば、発動します。
+								キャラクタークリックイベントです。さくらとケロ以外のキャラがクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -457,7 +468,7 @@
 						<p name="name">OnCharacterDoubleClick</p>
 						<div name="desc">
 							<p>
-								キャラクターダブルクリックイベントです。さくらとケロ以外のキャラをダブルクリックすれば、発動します。
+								キャラクターダブルクリックイベントです。さくらとケロ以外のキャラがダブルクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -599,7 +610,7 @@
 						<p name="name">OnKasanari</p>
 						<div name="desc">
 							<p>
-								重なりイベントです。一定時間以上キャラが重ねていると発動します。
+								重なりイベントです。一定時間以上キャラが重なっていると発動します。
 							</p>
 						</div>
 					</div>
@@ -608,7 +619,7 @@
 						<p name="name">OnKeroClick</p>
 						<div name="desc">
 							<p>
-								ケロクリックイベントです。ケロをクリックすれば、発動します。
+								ケロクリックイベントです。ケロがクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -660,7 +671,7 @@
 						<p name="name">OnKeroDoubleClick</p>
 						<div name="desc">
 							<p>
-								ケロダブルクリックイベントです。ケロをダブルクリックすれば、発動します。
+								ケロダブルクリックイベントです。ケロがダブルクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -721,7 +732,7 @@
 						<p name="name">OnSakuraClick</p>
 						<div name="desc">
 							<p>
-								さくらクリックイベントです。さくらをクリックすれば、発動します。
+								さくらクリックイベントです。さくらがクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -773,7 +784,7 @@
 						<p name="name">OnSakuraDoubleClick</p>
 						<div name="desc">
 							<p>
-								さくらダブルクリックイベントです。さくらをダブルクリックすれば、発動します。
+								さくらダブルクリックイベントです。さくらがダブルクリックされた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -825,7 +836,7 @@
 						<p name="name">OnStroke</p>
 						<div name="desc">
 							<p>
-								なでなでイベントです。当たり判定をある程度なでると発動します。
+								なで反応イベントです。当たり判定をある程度なでると発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -853,7 +864,7 @@
 						<p name="name">OnTalk</p>
 						<div name="desc">
 							<p>
-								ランダムトークイベントです。使用者が呼ばない場合は、時間の流れによって、勝手に発動します。
+								ランダムトークイベントです。使用者が呼ばない場合は、時間の流れによって、自動的に発動します。
 							</p>
 						</div>
 					</div>
@@ -862,7 +873,7 @@
 						<p name="name">OnTimerElapsed</p>
 						<div name="desc">
 							<p>
-								タイマー経過イベントです。現在時刻がタイマーの指定された時刻を過ぎたら、発動します。
+								タイマー経過イベントです。現在時刻がタイマーの指定された時刻を過ぎた場合に発動します。
 							</p>
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -895,7 +906,7 @@
 					</div>
 					<h2>内部クラス</h2>
 					<div class="alert alert-danger">
-						<strong>ご注意！</strong>　下のクラスは、一般的な方法では使えられません。
+						<strong>ご注意！</strong>　下のクラスは、一般的な方法では使えません。
 					</div>
 					<div type="doc">
 						<p name="type">class</p>
@@ -941,7 +952,7 @@
 			</div>
 			<div>
 				<hr />
-				<p class="text-muted">Translated by <a href="http://minacle.it/">Minacle</a>.</p>
+				<p class="text-muted">Translated by <a href="http://minacle.it/">Minacle</a>, <a href="http://blog.naver.com/leebox91">EvieNeco</a>.</p>
 				<p class="text-muted">Copyright &copy; 2013-2014 Minacle.</p>
 			</div>
 		</div>
