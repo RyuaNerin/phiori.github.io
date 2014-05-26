@@ -34,27 +34,27 @@
 					<div>
 						<h3>손쉬운 이벤트 핸들링</h3>
 						<pre><code>@handle("OnBoot")
-def boot(**args):
+def boot():
 	write(r"\1\s0\0\s0잘 지냈어?\e")</code></pre>
 					</div>
 					<div>
 						<h3>간편한 임의 대사</h3>
 						<pre><code>@handle("OnGhostChanged")
-def ghostchanged(**args):
+def ghostchanged(*args):
 	write(r"\1\s0\0\s0")
 	write(
 		[
-			"{Reference0}씨, 수고 많았어!",
-			"{Reference0}씨랑 교대했어!"
+			"{}씨, 수고 많았어!",
+			"{}씨랑 교대했어!"
 		],
-		**args
+		*args
 	)
 	write(r"\e")</code></pre>
 					</div>
 					<div>
 						<h3>편리한 고유 이벤트</h3>
 						<pre><code>@handle("OnStroke")
-def stroke(**args):
+def stroke(*args):
 	if args[1] == "Head":
 		write(r"\0\s1기분은…… \w6좋네…….\e")</code></pre>
 					</div>
