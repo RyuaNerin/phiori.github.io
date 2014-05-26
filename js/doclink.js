@@ -4,8 +4,8 @@ var doclink = {
 			case 'module':
 			case 'class':
 			case 'constructor':
+			case 'decorator':
 				return 'text-danger';
-				break;
 			case 'void':
 			case 'object':
 			case 'bool':
@@ -16,7 +16,6 @@ var doclink = {
 			case 'dict':
 			case 'map':
 				return 'text-info';
-				break;
 			case 'event':
 				return 'text-warning';
 			default:
